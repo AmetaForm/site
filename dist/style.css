@@ -1,0 +1,62 @@
+body {
+  color: #FFFFFF;
+  margin: 0;
+  text-align: center;
+  background-color: transparent;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+}
+
+.header {
+  width: 250px;
+  top: 50%;
+  transform: translatey(-50%);
+}
+
+a, a:hover, a:visited {
+  color: #7e0f0f;
+  text-decoration: none;
+}
+
+h1:after {
+  content: " ThreeJS";
+  font-size: 0.6rem;
+  position: relative;
+  top: -1rem;
+  z-index: -1;
+}
+
+.top-button-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Опционально: фон для контраста */
+  padding: 10px;
+  z-index: 1; /* Убедитесь, что кнопка находится над другими элементами */
+}
+
+.top-button {
+  background-color: #007BFF; /* Цвет кнопки */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.top-button:hover {
+  background-color: #0056b3; /* Цвет кнопки при наведении */
+}

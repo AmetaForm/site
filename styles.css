@@ -141,6 +141,43 @@ body {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: #898989;
-    z-index: 2;
+    z-index: 1;
     user-select: none;
 }
+
+p {
+    color: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+  }
+  
+  .header {
+    width: 250px;
+    top: 50%;
+    transform: translatey(-50%);
+    z-index: 1;
+  }
+  
+  a, a:hover, a:visited {
+    color: #7e0f0f;
+    text-decoration: none;
+    z-index: 2;
+    top: 50px;
+    left: 20px;
+  }
+  
+  h1:after {
+    content: " ThreeJS";
+    font-size: 0.6rem;
+    position: relative;
+    top: -4rem;
+    z-index: 2;
+  }
+
+  #gui-container {
+    position: fixed; /* Фиксируем позицию на экране */
+    top: 170px; /* Располагаем у нижнего края */
+    left: 190px; /* Центруем по горизонтали */
+    transform: translateX(-50%); /* Смещаем на половину ширины для точного центрирования */
+    z-index: 1000; /* Устанавливаем высокий z-index, чтобы меню было над другими элементами */
+  }
+
