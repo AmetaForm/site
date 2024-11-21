@@ -15,8 +15,8 @@ const texts = [
 	"///////"
 ];
 
-const morphTime = 4;
-const cooldownTime = 0.4;
+const morphTime = 3;
+const cooldownTime = 1;
 
 let textIndex = texts.length - 1;
 let time = new Date();

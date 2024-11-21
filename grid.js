@@ -17,11 +17,11 @@ function createGrid() {
     function drawGrid() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        const gridSize = 100; // Увеличен размер сетки до 100
-        ctx.lineWidth = 1;
+        const gridSize = 70; // Увеличен размер сетки до 100
+        ctx.lineWidth = 0.5;
         
         // Добавляем размытие
-        ctx.filter = 'blur(1.4px)';
+        ctx.filter = 'blur(0.6px)';
 
         // Вертикальные линии
         for(let x = 0; x <= canvas.width; x += gridSize) {
