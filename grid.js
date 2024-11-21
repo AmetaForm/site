@@ -17,8 +17,8 @@ function createGrid() {
     function drawGrid() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        const gridSize = 70; // Увеличен размер сетки до 100
-        ctx.lineWidth = 0.5;
+        const gridSize = 60; // Увеличен размер сетки до 100
+        ctx.lineWidth = 0.6;
         
         // Добавляем размытие
         ctx.filter = 'blur(0.6px)';
