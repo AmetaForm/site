@@ -1,0 +1,53 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ameta.Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="grid"></canvas>
+    <div id="container">
+        <span id="text1"></span>
+        <span id="text2"></span>
+    </div>
+
+    <svg id="filters">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic"
+                    type="matrix"
+                    values="1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            0 0 0 255 -140" />
+            </filter>
+        </defs>
+    </svg>
+    
+    <div class="nav-buttons">
+        <button class="nav-button">projects</button>
+        <button class="nav-button">folders</button>
+        <button class="nav-button">contacts</button>
+    </div>
+
+    
+    <div class="modal" id="foldersModal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-buttons">
+            <button class="folder-button">Folder 1</button>
+            <button class="folder-button">Folder 2</button>
+            <button class="folder-button">Folder 3</button>
+            <button class="folder-button">Folder 4</button>
+            <button class="folder-button">Folder 5</button>
+            <button class="folder-button">Folder 6</button>
+        </div>
+    </div>
+
+
+    <script src="grid.js"></script>
+    <script src="script.js"></script>
+    <script src="folders_button.js"></script>
+</body>
+</html>
