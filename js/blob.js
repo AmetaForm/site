@@ -3,6 +3,7 @@ window.addEventListener('load', init, false);
 function init() {
   createWorld();
   createGUI();
+  setupHTMLControls()
   createPrimitive();
   animation();
 }
@@ -116,6 +117,10 @@ var primitiveElement = function() {
   this.shape = new THREE.Mesh(geo, mat);
   this.point = new THREE.Points(wir, mat);
   //---
+
+  this.shape.position.y = -1;
+  this.point.position.y = -1;
+
   shapeGroup.add(this.point);
   shapeGroup.add(this.shape);
   
@@ -128,7 +133,7 @@ function createPrimitive() {
 var options = {
   perlin: {
     speed: 0.4,
-    size: 0.7,
+    size: 1.0,
     perlins: 1.0,
     decay: 1.20,
     displace: 1.00,
@@ -235,34 +240,71 @@ var options = {
 
 function createGUI() {
   var gui = new dat.GUI();
+  gui.domElement.id = 'gui-container';
     
   var perlinGUI = gui.addFolder('Shape Setup');
   perlinGUI.add(options, 'perlinRandom').name('• Random Shape');
-  perlinGUI.add(options.perlin, 'speed', 0.1, 1.0).name('Speed').listen();
-  perlinGUI.add(options.perlin, 'size', 0.0, 3.0).name('Size').listen();
-  //perlinGUI.add(options.perlin, 'decay', 0.0, 1.0).name('Decay').listen();
-  perlinGUI.add(options.perlin, 'waves', 0.0, 20.0).name('Waves').listen();
-  perlinGUI.add(options.perlin, 'complex', 0.1, 1.0).name('Complex').listen();
-  perlinGUI.add(options.perlin, 'displace', 0.1, 2.5).name('Displacement').listen();
+  // perlinGUI.add(options.perlin, 'speed', 0.1, 1.0).name('Speed').listen();
+  // perlinGUI.add(options.perlin, 'size', 0.0, 3.0).name('Size').listen();
+  // //perlinGUI.add(options.perlin, 'decay', 0.0, 1.0).name('Decay').listen();
+  // perlinGUI.add(options.perlin, 'waves', 0.0, 20.0).name('Waves').listen();
+  // perlinGUI.add(options.perlin, 'complex', 0.1, 1.0).name('Complex').listen();
+  // perlinGUI.add(options.perlin, 'displace', 0.1, 2.5).name('Displacement').listen();
   //perlinGUI.open();
-  
   var colorGUI = gui.addFolder('Color');
-  colorGUI.add(options, 'random').name('• Random colors');
-  colorGUI.add(options, 'normal').name('• Normal colors');
-  colorGUI.add(options, 'darker').name('• Dark colors');
-  colorGUI.add(options.perlin, 'eqcolor', 0.0, 30.0).name('Hue').listen();
-  colorGUI.add(options.perlin, 'rcolor', 0.0, 2.5).name('R').listen();
-  colorGUI.add(options.perlin, 'gcolor', 0.0, 2.5).name('G').listen();
-  colorGUI.add(options.perlin, 'bcolor', 0.0, 2.5).name('B').listen();
-  colorGUI.add(options.perlin, 'redhell', true).name('Electroflow');
+   colorGUI.add(options, 'random').name('• Random colors');
+  // colorGUI.add(options, 'normal').name('• Normal colors');
+  // colorGUI.add(options, 'darker').name('• Dark colors');
+  // colorGUI.add(options.perlin, 'eqcolor', 0.0, 30.0).name('Hue').listen();
+  // colorGUI.add(options.perlin, 'rcolor', 0.0, 2.5).name('R').listen();
+  // colorGUI.add(options.perlin, 'gcolor', 0.0, 2.5).name('G').listen();
+  // colorGUI.add(options.perlin, 'bcolor', 0.0, 2.5).name('B').listen();
+  // colorGUI.add(options.perlin, 'redhell', true).name('Electroflow');
   
   //colorGUI.open();
   
-  gui.add(options, 'volcano').name('• Volcano');
-  gui.add(options, 'tornasol').name('• Tornasol');
-  gui.add(options, 'cloud').name('• Cotton Candy');
+  // gui.add(options, 'volcano').name('• Volcano');
+  // gui.add(options, 'tornasol').name('• Tornasol');
+  // gui.add(options, 'cloud').name('• Cotton Candy');
   gui.add(options.perlin, 'points', true).name('Points');
 }
+function setupHTMLControls() {
+  const randomShapeButton = document.getElementById('randomShapeButton');
+  randomShapeButton.addEventListener('click', () => {
+    console.log('Random shape generated!');
+    generateRandomShape();
+  });
+
+  const randomColorButton = document.getElementById('randomColorButton');
+  randomColorButton.addEventListener('click', () => {
+    console.log('Random color generated!');
+    generateRandomColor();
+  });
+}
+
+function generateRandomShape() {
+  TweenMax.to(options.perlin, 2, {
+    waves: Math.random() * 20.0,
+    complex: Math.random() * 1.0,
+    displace: Math.random() * 2.5,
+    ease: Elastic.easeOut
+  });
+}
+function generateRandomColor() {
+  const r = Math.random() * 1.5;
+  const g = Math.random()* 0.5;
+  const b = Math.random()* 1.5;
+
+  TweenMax.to(options.perlin, 1, {
+    eqcolor: 11.0,
+    rcolor: r,
+    gcolor: g,
+    bcolor: b,
+    ease: Quart.easeInOut
+  });
+  console.log(`New color: R=${r}, G=${g}, B=${b}`);
+}
+
 //--------------------------------------------------------------------
 function animation() {
   var performance = Date.now() * 0.003;

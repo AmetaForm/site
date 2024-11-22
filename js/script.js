@@ -11,8 +11,11 @@ const texts = [
 	"амета.форм",
     "ameta.morph",
     "delta cephei",
+    "implicätion",
+    "form→form",
 	"★★★",
-	"///////"
+	"///////",
+    "↖↑↙↓↗"
 ];
 
 const morphTime = 3;

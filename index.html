@@ -12,7 +12,12 @@
         <span id="text1"></span>
         <span id="text2"></span>
     </div>
-    <div id="digital-clock"></div>
+    <!-- <div id="parameters"></div> -->
+    <div id="controls">
+        <div id="digital-clock"></div>
+        <button id="randomColorButton">rnd/color</button>
+        <button id="randomShapeButton">rnd/shape</button>
+      </div>      
     <svg id="filters">
         <defs>
             <filter id="threshold">
@@ -42,7 +47,6 @@
 
         </div>
     </div>
-    <div id="container"></div>
     <script id="vertexShader" type="x-shader/x-vertex">
     //
     // GLSL textureless classic 3D noise "cnoise",
@@ -292,11 +296,11 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js'></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js'></script><script  src="./blob.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js'></script><script  src="./js/blob.js"></script>
 
-    <script src="grid.js"></script>
-    <script src="script.js"></script>
-    <script src="folders_button.js"></script>
-    <script src="clock.js"></script>
+    <script src="/js/grid.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/folders_button.js"></script>
+    <script src="/js/clock.js"></script>
 </body>
 </html>

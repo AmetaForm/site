@@ -1,5 +1,15 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css?family=Raleway:900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: "Boldstrom";
+    src: url("fonts/Boldstrom.woff2") format("woff2"),
+         url("fonts/Boldstrom.woff") format("woff"),
+         url("fonts/Boldstrom.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 body {
     margin: 0;
@@ -26,7 +36,7 @@ body {
     position: relative;
     width: 100vw;
     height: 3pt;
-    margin-top: 3 0px;
+    margin-top: -5px;
     margin-bottom: 0; 
     filter: url(#threshold) blur(0.4px);
     z-index: 1;
@@ -36,20 +46,21 @@ body {
     position: absolute;
     width: 100%;
     display: inline-block;
-    font-family: 'Raleway', sans-serif;
-    font-size: 86pt; /* Уменьшено на 40% со 144pt */
+    font-family: Noto Sans, sans-serif;
+    font-weight: 700;
+    font-size: 86pt; 
     text-align: center;
     user-select: none;
     color: #eac951;
 }
 
 .nav-buttons {
-    margin-top: 91pt; /* Изменено с 3px */
+    margin-top: 110pt; 
     position: absolute;
     z-index: 1;
-    display: flex; /* Добавлено */
-    justify-content: center; /* Добавлено */
-    align-items: center; /* Добавлено */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .nav-button {
@@ -61,13 +72,13 @@ body {
     padding: 11px 22px;
     cursor: pointer;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Добавлено */
+    white-space: nowrap; 
 }
 
 .nav-button:hover {
     transform: scale(1.1);
     color: #eac951;
-    text-shadow: 0 0 11px #eac951; /* Уменьшено на 40% с 18px */
+    text-shadow: 0 0 11px #eac951; 
 }
 
 .modal {
@@ -77,45 +88,45 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(26, 26, 26, 0.95);
-    border-radius: 12px; /* Уменьшено на 40% с 20px */
-    padding: 18px; /* Уменьшено на 40% с 30px */
-    width: 360px; /* Уменьшено на 40% с 600px */
-    height: 240px; /* Уменьшено на 40% с 400px */
+    border-radius: 12px; 
+    padding: 18px; 
+    width: 360px; 
+    height: 240px; 
     z-index: 1000;
-    border: 1px solid rgba(234, 201, 81, 0.3);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); /* Уменьшено на 40% с 20px */
+    border: 1px solid rgba(114, 114, 114, 0.3);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); 
 }
 
 .modal-buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px; /* Уменьшено на 40% с 20px */
-    padding: 12px; /* Уменьшено на 40% с 20px */
+    gap: 12px; 
+    padding: 12px; 
     justify-items: center;
     align-content: center;
     height: 100%;
 }
 
 .folder-button {
-    width: 72px; /* Уменьшено на 40% со 120px */
-    height: 72px; /* Уменьшено на 40% со 120px */
+    width: 72px; 
+    height: 72px; 
     background: rgba(239, 239, 239, 0.1);
-    border: 1px solid rgba(234, 201, 81, 0.3);
-    border-radius: 6px; /* Уменьшено на 40% с 10px */
+    border: 1px solid rgba(114, 114, 114, 0.3);
+    border-radius: 6px; 
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #efefef;
-    font-size: 10px; /* Уменьшено на 40% с 16px */
+    font-size: 10px; 
 }
 
 .folder-button:hover {
     background: rgba(234, 201, 81, 0.1);
     border-color: #eac951;
     transform: scale(1.05);
-    box-shadow: 0 0 9px rgba(234, 201, 81, 0.2); /* Уменьшено на 40% с 15px */
+    box-shadow: 0 0 9px rgba(234, 201, 81, 0.2); 
 }
 
 .close-modal {
@@ -133,36 +144,12 @@ body {
 .close-modal:hover {
     color: #eac951;
 }
-
-#digital-clock {
-    position: fixed;
-    top: 50px;
-    left: 20px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    color: #898989;
-    z-index: 1;
-    user-select: none;
-}
-
-p {
-    color: rgba(255, 255, 255, 0.1);
-    z-index: 1;
-  }
   
   .header {
     width: 250px;
     top: 50%;
     transform: translatey(-50%);
     z-index: 1;
-  }
-  
-  a, a:hover, a:visited {
-    color: #7e0f0f;
-    text-decoration: none;
-    z-index: 2;
-    top: 50px;
-    left: 20px;
   }
   
   h1:after {
@@ -179,5 +166,44 @@ p {
     left: 190px; /* Центруем по горизонтали */
     transform: translateX(-50%); /* Смещаем на половину ширины для точного центрирования */
     z-index: 1000; /* Устанавливаем высокий z-index, чтобы меню было над другими элементами */
+    visibility: hidden;
   }
+
+  #controls {
+    position: absolute;
+    top: 40px; /* Располагаем сверху */
+    right: 20px; /* Располагаем справа */
+    display: flex;
+    flex-direction: column; /* Располагаем элементы в столбик */
+    gap: 10px; /* Отступ между элементами */
+    align-items: flex-end; /* Прижимаем текст и кнопки к правой стороне */
+    z-index: 2000;
+  }
+  
+  #digital-clock {
+    font-size: 19px;
+    color: #9a9a9a;
+    text-align: right; /* Выравниваем текст часов по правому краю */
+  }
+  
+  #randomShapeButton,
+  #randomColorButton {
+    font-size: 19px;
+    cursor: pointer;
+    background-color: transparent; /* Прозрачный фон */
+    color: #9a9a9a; /* Белый текст */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  #randomShapeButton:hover,
+  #randomColorButton:hover {
+    background-color: transparent; /* Цвет при наведении */
+    transform: scale(1.05); /* Лёгкое увеличение при наведении */
+  }
+  
+  
+  
+  
 

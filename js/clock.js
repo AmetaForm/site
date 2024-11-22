@@ -9,6 +9,7 @@ function updateClock() {
     // Добавляем ведущий ноль если необходимо
     hours = hours < 10 ? '0' + hours : hours;
     minutes = minutes < 10 ? '0' + minutes : minutes;
+    
 
     // Форматируем время
     const timeString = `${hours}:${minutes}`;
